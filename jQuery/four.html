@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/nav.js"></script>
+</head>
+<body>
+<div style="height: 100%;width: 100%">
+    <div class="nav" style="height: 100%;width: 15%;float:left;">
+        <ul style="height: 100%">
+            <li class="nav-item">
+                <a href="collect/index.html" target="menuFrame">
+                    <i class="my-icon nav-icon icon_3">
+                    </i><span>埋点数据分析</span>
+                    </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="collect/login.html" target="menuFrame">
+                    <i class="my-icon nav-icon icon_3"></i>
+                    <span>埋点数据分析</span>
+                    </i></a>
+            </li>
+            <li class="nav-item">
+                <a href="collect/login.html;" target="menuFrame">
+                    <i class="my-icon nav-icon icon_3"></i>
+                    <span>埋点数据分析</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="page_content" style="height: 100%; width: 85%;float:right;">
+        <iframe id="menuFrame" name="menuFrame" src="collect/index.html" scrolling="yes"
+                frameborder="no"
+                style="height: 100%;width: 100%;">
+        </iframe>
+    </div>
+</div>
+</body>
+<script>
+    var menu = $("#menuID>li h2"),
+        srcLi = menu.next('ul').find('li');
+    srcLi.on('click', function (e) {
+        var href = $(this).find("a").attr('href');
+        $('#mainContents').empty();
+        $.ajax({
+            type: "GET",
+            url: "../new/" + href,
+            success: function (data) {
+                $('#mainContents').append(data);
+            }
+        });
+        //阻止跳转
+        $(this).parents('li').addClass('active').siblings('li').removeClass('active');
+        return false;
+    });
+    menu.on('click', function () {
+        $(this).next('ul').slideToggle(400);
+        $(this).stop('false').toggleClass('on');
+    });
+</script>
+</html>
+
+
