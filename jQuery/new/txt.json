@@ -1,0 +1,22 @@
+{
+  "employees": [
+
+    { "姓名": "张三", "职位":"php后台", "email": "aaaa" },
+
+    { "姓名": "李四", "职位":"人事经理", "email": "bbbb" },
+
+    { "姓名": "王五", "职位":"Harold", "email": "cccc" },
+
+    { "姓名": "Isaac", "职位": "Asimov", "genre": "science fiction" },
+
+    { "姓名": "Tad", "职位": "Williams", "genre": "fantasy" },
+
+    { "姓名": "Frank", "职位": "Peretti", "genre": "christian fiction" },
+
+    { "姓名": "Eric", "职位": "Clapton", "instrument": "guitar" },
+
+    { "姓名": "Sergei", "职位": "Rachmaninoff", "instrument": "piano" }
+  ],
+
+  "test": [    { "姓名": "赵六", "职位":"php后台", "email": "aaaa" },    { "姓名": "齐七", "职位":"人事经理", "email": "bbbb" },    { "姓名": "王五", "职位":"Harold", "email": "cccc" },    { "姓名": "Isaac", "职位": "Asimov", "genre": "science fiction" },    { "姓名": "Tad", "职位": "Williams", "genre": "fantasy" },    { "姓名": "Frank", "职位": "Peretti", "genre": "christian fiction" },    { "姓名": "Eric", "职位": "Clapton", "instrument": "guitar" },    { "姓名": "Sergei", "职位": "Rachmaninoff", "instrument": "piano" }    ]
+}

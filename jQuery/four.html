@@ -25,7 +25,7 @@
                     </i></a>
             </li>
             <li class="nav-item">
-                <a href="collect/login.html;" target="menuFrame">
+                <a href="collect/login.html" target="menuFrame">
                     <i class="my-icon nav-icon icon_3"></i>
                     <span>埋点数据分析</span>
                 </a>
@@ -46,13 +46,34 @@
     srcLi.on('click', function (e) {
         var href = $(this).find("a").attr('href');
         $('#mainContents').empty();
-        $.ajax({
-            type: "GET",
-            url: "../new/" + href,
-            success: function (data) {
-                $('#mainContents').append(data);
-            }
-        });
+        console.log(href),
+          /*  $.ajax({
+                //  beforeSend: function(){
+                //      $('#mainContents').html('正在请求');
+                //  },
+                // complete: function(){
+                //      $('#mainContents').html('加载完毕');
+                //     },
+                type: "GET",
+                url: "../new/" + href,
+                success: function(data) {
+                    $('#mainContents').append(data);
+                }
+            });*/
+            $.ajax({
+                type: "post",
+                url: "/new/txt.json",
+                dataType: "json",
+                success: function(data) {
+                    $("#blank").empty();
+                    var employees = data.employees;
+                    $.each(data.employees, function(k, v) {
+                        var tpl1 =
+                            '<div class="halfLeft">' + '<span class="aboutJobs">' + v.职位 + '</span>: ' + '<span class="aboutNames">' + v.姓名 + '</span>;<br/>' + '</div>';
+                        $("#blank").append(tpl1);
+                    });
+                }
+            })
         //阻止跳转
         $(this).parents('li').addClass('active').siblings('li').removeClass('active');
         return false;
